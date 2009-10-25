@@ -1,0 +1,66 @@
+#: Not actually used directly, just for convenience
+#
+locations: {"DATA_DIR": "/home/fringant2/lisa/turian/dev/python/language-model/data/"}
+
+# Should we induce an embedding for OOV words?
+INCLUDE_UNKNOWN_WORD: True
+
+RUN_NAME: "rcv1.unclean.tokenized-CoNLL03.case-intact"
+VOCABULARY_SIZE: 651704
+
+NORMALIZE_EMBEDDINGS: False
+#NORMALIZE_EMBEDDINGS: True
+#UPDATES_PER_NORMALIZE_EMBEDDINGS: 1000
+
+# Number of validation examples
+#VALIDATION EXAMPLES: 10000
+VALIDATION EXAMPLES: 2500
+
+# What percent of noise examples should we use for computing the logrank
+# during validation?
+# This is a speed optimization.
+PERCENT OF NOISE EXAMPLES FOR VALIDATION LOGRANK: 0.01
+
+NGRAM_FOR_TRAINING_NOISE: 0
+
+#NGRAMS: {(1, 5000): join(DATA_DIR, "1grams-wikitext-5000.json.gz"),
+#(1, 10000): join(DATA_DIR, "1grams-wikitext-10000.json.gz"),
+#(1, 20000): join(DATA_DIR, "1grams-wikitext-20000.json.gz")}
+
+# Number of instances of each ngram to add, for smoothing.
+TRAINING_NOISE_SMOOTHING_ADDITION: 0
+
+# Each embedded word representation has this width
+EMBEDDING_SIZE: 50
+#EMBEDDING_SIZE: 5
+
+# Predict with a window of five words at a time
+WINDOW_SIZE: 5
+
+HIDDEN_SIZE: 100
+#HIDDEN_SIZE: 10
+
+#: Scaling value to control range for weight initialization
+#SCALE_INITIAL_WEIGHTS_BY: math.sqrt(3)
+SCALE_INITIAL_WEIGHTS_BY: 1
+
+# Which activation function to use?
+#ACTIVATION_FUNCTION="sigmoid"
+#ACTIVATION_FUNCTION="tanh"
+ACTIVATION_FUNCTION: "softsign"
+
+LEARNING_RATE: 0.00000001
+
+# The learning rate for the embeddings
+EMBEDDING_LEARNING_RATE: 0.0000032
+
+## number of (higher-order) quadratic filters for James's neuron
+#NUMBER_OF_QUADRATIC_FILTERS=0
+## We use this scaling factor for initial weights of quadratic filters,
+## instead of SCALE_INITIAL_WEIGHTS_BY
+## @note: Try between 10 and 0.01
+#SCALE_QUADRATIC_INITIAL_WEIGHTS_BY: 1
+
+# Validate after this many examples
+VALIDATE_EVERY: 10000000
+#VALIDATE_EVERY: 1000

@@ -1,0 +1,12 @@
+A neural language model, intended to produce embeddings for a linear classifier
+
+Code initially imported from
+    ssh://lgcm.iro.umontreal.ca/repos/language-model.predict-final-word
+
+TODO:
+    * sqrt scaling of SGD updates
+    * Use normalization of embeddings?
+    * How do we initialize embeddings?
+    * Use tanh, not softsign?
+    * When doing SGD on embeddings, use sqrt scaling of embedding size?
+
